@@ -1,0 +1,18 @@
+language: java
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+script:
+  - gradle
+
+notifications:
+  email:
+    recipients:
+      - avdayan@bgu.ac.il
+      - shmilovt@post.bgu.ac.il
+    on_success: always
+    on_failure: always

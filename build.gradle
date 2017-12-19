@@ -1,0 +1,28 @@
+defaultTasks 'build'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+ext.libraries = [
+        testing: [
+                'org.testng:testng:6.9.10',
+                'org.mockito:mockito-all:1.10.19'
+        ]
+]
+
+dependencies {
+    testCompile libraries.testing
+    compile 'fr.inria.gforge.spoon:spoon-core:6.0.0'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+test {
+    useTestNG()
+    systemProperty "file.encoding", "utf-8"
+}
